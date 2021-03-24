@@ -1,20 +1,15 @@
 <template>
   <h1>Some heros {{ herosCount }}</h1>
-  <h2>{{ fullname }}</h2>
-  <p>{{ randC }}</p>
-  <p>{{ randC }}</p>
-  <p>{{ randC }}</p>
-  <p>{{ randM() }}</p>
-  <p>{{ randM() }}</p>
   <ul>
-    <li v-for="(hero, ind) in heros" :key="ind">{{ ind }}: {{ hero.name }}</li>
+    <li v-for="(hero, index) in heros" :key="hero.name">
+      <div>{{ hero.name }} <button @click="removeHero(index)">x</button></div>
+      <input />
+    </li>
   </ul>
   <form @submit.prevent="addNewHero">
     <input v-model="newHero" placeholder="Type the name of your hero" />
     <button type="submit">Add hero</button>
   </form>
-  <small>This is count of heros {{ herosCount }}</small>
-  <button @click="setFullName">Set Fullname</button>
 </template>
 
 <script>
@@ -36,19 +31,6 @@ export default {
     herosCount() {
       return `${this.heros.length} heros`;
     },
-    randC() {
-      return this.heros.length + Math.random();
-    },
-    fullname: {
-      get() {
-        return `My fullname is ${this.fname} ${this.lname}`;
-      },
-      set(fullname) {
-        const nameValues = fullname.split(" ");
-        this.fname = nameValues[0];
-        this.lname = nameValues[1];
-      },
-    },
   },
   methods: {
     addNewHero() {
@@ -57,11 +39,10 @@ export default {
         this.newHero = "";
       }
     },
-    randM() {
-      return Math.random();
-    },
-    setFullName() {
-      this.fullname = "New name";
+    removeHero(index) {
+      console.log(index);
+      this.heros = this.heros.filter((hero, i) => i !== index);
+      console.log(this.heros);
     },
   },
 };
