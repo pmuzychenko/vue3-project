@@ -1,40 +1,15 @@
 <template>
+  <AppHeader />
   <div class="w-full flex">
-    <div class="m-auto">
-      <h1 class="text-2xl text-center font-bold">
-        Some heros {{ herosCount }}
-      </h1>
-      <ul>
-        <li
-          class="flex justify-between"
-          v-for="(hero, index) in heros"
-          :key="hero.name"
-        >
-          <div>
-            {{ hero.name }}
-          </div>
-          <button @click="removeHero(index)">x</button>
-        </li>
-      </ul>
-      <form class="mt-10" @submit.prevent="addNewHero">
-        <input
-          class="border rounded"
-          v-model="newHero"
-          placeholder="Type the hero name"
-        />
-        <button
-          class="border rounded bg-gradient-to-r from-red-700 to-pink-500 text-white"
-          type="submit"
-        >
-          Add hero
-        </button>
-      </form>
-    </div>
+    <MarvelHeros />
   </div>
 </template>
 
 <script>
+import AppHeader from "./components/AppHeader.vue";
+import MarvelHeros from "./components/MarvelHeros.vue";
 export default {
+  components: { AppHeader, MarvelHeros },
   data() {
     return {
       fname: "Pavel",
