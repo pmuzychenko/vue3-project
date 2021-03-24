@@ -1,15 +1,36 @@
 <template>
-  <h1>Some heros {{ herosCount }}</h1>
-  <ul>
-    <li v-for="(hero, index) in heros" :key="hero.name">
-      <div>{{ hero.name }} <button @click="removeHero(index)">x</button></div>
-      <input />
-    </li>
-  </ul>
-  <form @submit.prevent="addNewHero">
-    <input v-model="newHero" placeholder="Type the name of your hero" />
-    <button type="submit">Add hero</button>
-  </form>
+  <div class="w-full flex">
+    <div class="m-auto">
+      <h1 class="text-2xl text-center font-bold">
+        Some heros {{ herosCount }}
+      </h1>
+      <ul>
+        <li
+          class="flex justify-between"
+          v-for="(hero, index) in heros"
+          :key="hero.name"
+        >
+          <div>
+            {{ hero.name }}
+          </div>
+          <button @click="removeHero(index)">x</button>
+        </li>
+      </ul>
+      <form class="mt-10" @submit.prevent="addNewHero">
+        <input
+          class="border rounded"
+          v-model="newHero"
+          placeholder="Type the hero name"
+        />
+        <button
+          class="border rounded bg-gradient-to-r from-red-700 to-pink-500 text-white"
+          type="submit"
+        >
+          Add hero
+        </button>
+      </form>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -18,7 +39,7 @@ export default {
     return {
       fname: "Pavel",
       lname: "Muzychenko",
-      newHero: "Aquaman",
+      newHero: "",
       heros: [
         { name: "Batman" },
         { name: "Superman" },
