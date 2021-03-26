@@ -1,16 +1,15 @@
 <template>
   <AppHeader />
   <div class="w-full flex">
-    <MarvelHeros />
+    <Calendar />
   </div>
 </template>
 
 <script>
 import AppHeader from "./components/AppHeader.vue";
-import MarvelHeros from "./components/MarvelHeros.vue";
+import Calendar from "./components/Calendar.vue";
 export default {
-  components: { AppHeader, MarvelHeros },
-  }
+  components: { AppHeader, Calendar },
 };
 </script>
 
