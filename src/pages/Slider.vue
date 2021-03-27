@@ -1,20 +1,16 @@
 <template>
   <div class="w-full flex flex-wrap">
     <div
-      v-if="currentSlide === 0"
-      class="absolute bg-blue-600 w-full"
-      style="height: 350px"
-    ></div>
-    <div
-      v-if="currentSlide === 1"
-      class="absolute bg-yellow-600 w-full"
-      style="height: 350px"
-    ></div>
-    <div
-      v-if="currentSlide === 2"
-      class="absolute bg-green-700 w-full"
-      style="height: 350px"
-    ></div>
+      v-for="(color, index) in sliderColors"
+      :key="color"
+      class="w-full absolute"
+    >
+      <div
+        v-if="currentSlide === index"
+        :class="color"
+        style="height: 350px"
+      ></div>
+    </div>
   </div>
 </template>
 
@@ -24,6 +20,7 @@ export default {
     return {
       currentSlide: 0,
       interval: "",
+      sliderColors: ["bg-blue-600", "bg-yellow-600", "bg-green-700"],
     };
   },
   mounted() {
