@@ -18,8 +18,9 @@ export default {
     return {
       list: [
         { title: "Marvel-heros", path: "/marvel-heros" },
-        { title: "Calendar", path: "/calendas" },
+        { title: "Calendar", path: "/calendar" },
         { title: "Markdown", path: "/markdown" },
+        { title: "Slider Carousel", path: "/slider" },
       ],
     };
   },
