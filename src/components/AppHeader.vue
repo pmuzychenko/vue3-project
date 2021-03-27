@@ -9,6 +9,7 @@
       class="mx-2"
       >{{ link.title }}</router-link
     >
+    <button class="mx-2">Login</button>
   </nav>
 </template>
 
