@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import firebase from "../utilites/firebase.js";
 export default {
   data() {
     return {
@@ -51,7 +52,15 @@ export default {
   },
   methods: {
     submitFormData() {
-      //sumbit
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then((res) => {
+          console.log("res ", res);
+        })
+        .catch((error) => {
+          console.log("error ", error);
+        });
     },
   },
 };
