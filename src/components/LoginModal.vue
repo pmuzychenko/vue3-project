@@ -8,12 +8,13 @@
       <div class="m-auto z-30 bg-white p-2 rounded shadow w-1/3">
         <div class="p-2 border">
           <h1 class="text-2xl text-center font-bold">Login</h1>
-          <form class="p-2 my-2">
+          <form class="p-2 my-2" @submit.prevent="submitFormData">
             <div class="my-4">
               <label class="text-xl">Email or username</label>
               <input
                 class="w-full p-2 rounded border shadow"
                 placeholder="Enter email or username"
+                v-model="email"
               />
             </div>
             <div class="my-4">
@@ -22,6 +23,7 @@
                 type="password"
                 class="w-full p-2 rounded border shadow"
                 placeholder="Enter your password"
+                v-model="password"
               />
             </div>
             <div class="my-4">
@@ -40,7 +42,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    submitFormData() {
+      //sumbit
+    },
+  },
+};
 </script>
 
 <style>
