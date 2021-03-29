@@ -17,9 +17,10 @@
     </ul>
     <form class="flex justify-between mt-1" @submit.prevent="addNewHero">
       <input
-        class="border rounded w-min"
+        class="border rounded w-min outline-none"
         v-model="newHero"
         placeholder="Type the hero name"
+        ref="newHeroRef"
       />
       <button
         class="border rounded bg-gradient-to-r from-red-700 to-pink-500 text-white"
@@ -46,6 +47,9 @@ export default {
         { name: "Ant-Man" },
       ],
     };
+  },
+  mounted() {
+    this.$refs.newHeroRef.focus();
   },
   computed: {
     herosCount() {

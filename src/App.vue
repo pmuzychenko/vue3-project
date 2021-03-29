@@ -1,5 +1,5 @@
 <template>
-  <AppHeader @openLoginModal="isLoginOpen = true" />
+  <AppHeader :isLoggedIn="isLoggedIn" @openLoginModal="isLoginOpen = true" />
   <div class="w-full flex">
     <router-view></router-view>
   </div>
@@ -24,11 +24,11 @@ export default {
     console.log("mounted");
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        console.log("yo");
+        console.log("success");
         this.isLoggedIn = true;
         this.authUser = user;
       } else {
-        console.log("no");
+        console.log("failed");
         this.isLoggedIn = false;
         this.authUser = {};
       }
