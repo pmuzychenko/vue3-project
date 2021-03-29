@@ -1,7 +1,7 @@
 <template>
   <section
     class="w-screen h-screen z-20 bg-gray-500 top-0 fixed opacity-50"
-    @click="$emit('closeLogin')"
+    @click="close"
   ></section>
   <div class="absolute inset-0">
     <div class="flex h-full">
@@ -48,19 +48,29 @@ export default {
     return {
       email: "",
       password: "",
+      isLoading: false,
     };
   },
   methods: {
     submitFormData() {
+      this.isLoading = true;
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
-        .then((res) => {
-          console.log("res ", res);
+        .then(() => {
+          this.email = "";
+          this.password = "";
+          this.close();
         })
         .catch((error) => {
           console.log("error ", error);
+        })
+        .finally(() => {
+          this.isLoading = false;
         });
+    },
+    close() {
+      this.$emit("closeLogin");
     },
   },
 };

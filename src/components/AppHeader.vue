@@ -10,10 +10,12 @@
       >{{ link.title }}</router-link
     >
     <button class="mx-2" @click="$emit('openLoginModal')">Login</button>
+    <button class="mx-2" @click="logout">Logout</button>
   </nav>
 </template>
 
 <script>
+import firebase from "../utilites/firebase";
 export default {
   data() {
     return {
@@ -24,6 +26,17 @@ export default {
         { title: "Slider Carousel", path: "/slider" },
       ],
     };
+  },
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          // Sign-out successful.
+        })
+        .catch(() => {});
+    },
   },
 };
 </script>
