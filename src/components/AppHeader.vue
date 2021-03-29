@@ -9,7 +9,7 @@
       class="mx-2"
       >{{ link.title }}</router-link
     >
-    <button class="mx-2">Login</button>
+    <button class="mx-2" @click="$emit('openLoginModal')">Login</button>
   </nav>
 </template>
 
