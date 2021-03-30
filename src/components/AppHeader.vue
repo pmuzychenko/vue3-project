@@ -25,6 +25,7 @@ export default {
         { title: "Calendar", path: "/calendar" },
         { title: "Markdown", path: "/markdown" },
         { title: "Slider Carousel", path: "/slider" },
+        { title: "Calculator", path: "/calculator" },
       ],
     };
   },
